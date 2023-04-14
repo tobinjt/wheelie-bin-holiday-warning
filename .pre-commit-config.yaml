@@ -11,11 +11,14 @@ repos:
       - id: check-vcs-permalinks
       - id: end-of-file-fixer
       - id: trailing-whitespace
-  # - repo: https://github.com/pre-commit/mirrors-eslint
-  # rev: v8.38.0
-  # hooks:
-  # - id: eslint
-  # args: [--fix]
+  - repo: local
+    hooks:
+      # Using this instead of a packaged eslint check because it's trivial.
+      - id: eslint
+        name: Run `eslint`
+        language: system
+        types: [ts]
+        entry: eslint
   - repo: meta
     hooks:
       - id: check-hooks-apply
